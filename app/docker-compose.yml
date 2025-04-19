@@ -5,8 +5,3 @@ services:
     image: ghcr.io/evanschalton/portainer-homepage:latest
     ports:
       - "80:80"
-    environment:
-      SERVICES: |
-        - Portainer: https://docker.lan:9443
-        - Neo4J: http://docker.lan:7474/browser/
-        - Grafana: http://docker.lan:3000
