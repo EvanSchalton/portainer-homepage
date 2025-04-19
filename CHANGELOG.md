@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/EvanSchalton/portainer-homepage/compare/v1.0.0...v1.1.0) (2025-04-19)
+
+
+### Features
+
+* move env vars to portainer-ui ([87e1a6b](https://github.com/EvanSchalton/portainer-homepage/commit/87e1a6b6dc87c5d950614a430812d7d43eb97a21))
+
 ## 1.0.0 (2025-04-19)
 
 
