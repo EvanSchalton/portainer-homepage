@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  home-page:
+    image: ghcr.io/yourname/docker-homepage:latest
+    ports:
+      - "80:80"
+    environment:
+      SERVICES: |
+        - Portainer: https://docker.lan:9443
+        - Neo4J: http://docker.lan:7474/browser/
+        - Grafana: http://docker.lan:3000
