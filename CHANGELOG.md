@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/EvanSchalton/portainer-homepage/compare/v1.1.0...v1.1.1) (2025-04-19)
+
+
+### Bug Fixes
+
+* remove - from env var names ([c149ed8](https://github.com/EvanSchalton/portainer-homepage/commit/c149ed848f973509618df019e4745eb25ea1e6ad))
+
 ## [1.1.0](https://github.com/EvanSchalton/portainer-homepage/compare/v1.0.0...v1.1.0) (2025-04-19)
 
 
