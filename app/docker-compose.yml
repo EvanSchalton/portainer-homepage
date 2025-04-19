@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   home-page:
-    image: ghcr.io/yourname/docker-homepage:latest
+    image: .
     ports:
       - "80:80"
     environment:
