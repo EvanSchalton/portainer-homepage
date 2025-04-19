@@ -24,6 +24,7 @@
 
         window.addEventListener("DOMContentLoaded", () => {
             const tbody = document.getElementById("services-body");
+            console.log({ services });
             services.forEach(entry => {
                 const name = Object.keys(entry)[0];
                 const url = entry[name];
