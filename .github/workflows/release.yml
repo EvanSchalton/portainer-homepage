@@ -3,6 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches: [main]
+    tags: ['v*.*.*']  # Triggers on version tags like v1.0.0
 
 jobs:
   build-and-push:
@@ -26,10 +27,29 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.CR_PAT }}
 
-      - name: Build and push Docker image to GHCR
+      - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: ./app
           file: ./app/Dockerfile
           push: true
-          tags: ghcr.io/evanschalton/portainer-homepage:latest
+          tags: |
+            ghcr.io/evanschalton/portainer-homepage:latest
+            ghcr.io/evanschalton/portainer-homepage:${{ github.ref_name }}
+
+  create-release:
+    needs: build-and-push
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Release ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          draft: false
+          prerelease: false
