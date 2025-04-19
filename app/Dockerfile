@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
 COPY setup.sh /setup.sh
-COPY app/styles.css /usr/share/nginx/html/styles.css
+COPY styles.css /usr/share/nginx/html/styles.css
 COPY template.html /template.html
 
 RUN chmod +x /setup.sh
