@@ -63,17 +63,17 @@ services:
 
 Define services using key-value environment variables in the Portainer UI using the following naming pattern:
 
-- `service-<id>-label`: The display name of the service
-- `service-<id>-url`: The link for the service
+- `service_<id>_label`: The display name of the service
+- `service_<id>_url`: The link for the service
 
 Example:
 
 | Key                    | Value                                  |
 |------------------------|----------------------------------------|
-| `service-portainer-label` | `Portainer`                        |
-| `service-portainer-url`   | `https://docker.lan:9443`          |
-| `service-neo4j-label`     | `Neo4J`                            |
-| `service-neo4j-url`       | `http://docker.lan:7474/browser/`  |
+| `service_portainer_label` | `Portainer`                        |
+| `service_portainer_url`   | `https://docker.lan:9443`          |
+| `service_neo4j_label`     | `Neo4J`                            |
+| `service_neo4j_url`       | `http://docker.lan:7474/browser/`  |
 
 Services are sorted by `<id>` (e.g., `portainer`, `neo4j`) for display order.
 
