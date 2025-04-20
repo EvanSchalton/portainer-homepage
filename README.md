@@ -98,3 +98,9 @@ Example:
 | `service_neo4j_url`       | `http://docker.lan:7474/browser/`  |
 
 Services are sorted by `<id>` (e.g., `portainer`, `neo4j`) for display order.
+
+You can customize the webpage with a custom title and header using env vars as well:
+| Key                    | Value      |
+|------------------------|------------|
+| `PAGE_TITLE` | `Portainer Services` |
+| `TABLE_HEADER`   | `Services`       |
