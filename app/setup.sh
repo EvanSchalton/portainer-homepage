@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Collect and sort all service IDs (based on label keys)
 echo "All Environment variables: $(env)"
