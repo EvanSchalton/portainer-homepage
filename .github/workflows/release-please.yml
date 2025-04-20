@@ -1,21 +1,19 @@
-name: Release Please
+# name: Release Please
 
-on:
-  push:
-    branches: [main]
+# on:
+#   push:
+#     branches: [main]
 
-jobs:
-  release:
-    runs-on: ubuntu-latest
+# jobs:
+#   release:
+#     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write
-      pull-requests: write
-      issues: write
+#     permissions:
+#       contents: write
+#       pull-requests: write
+#       issues: write
 
-    steps:
-      - uses: googleapis/release-please-action@v4
-        with:
-          release-type: simple
-          publish: true
-          auto_merge: true
+#     steps:
+#       - uses: googleapis/release-please-action@v4
+#         with:
+#           release-type: simple
