@@ -11,5 +11,5 @@ services:
       - service_portainer_label=Portainer
       - service_portainer_url=https://docker.lan:9443
       - service_neo4j_label=Neo4j
-      - service_neo4j_url=https://docker.lan:7474/browser/
+      - service_neo4j_url=http://docker.lan:7474/browser/
 
