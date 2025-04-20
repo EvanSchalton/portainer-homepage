@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/EvanSchalton/portainer-homepage/compare/v1.2.0...v1.3.0) (2025-04-20)
+
+
+### Features
+
+* release updated env handling ([199d571](https://github.com/EvanSchalton/portainer-homepage/commit/199d571fe571b11443d585211880d8060d5153ab))
+
 ## [1.2.0](https://github.com/EvanSchalton/portainer-homepage/compare/v1.1.2...v1.2.0) (2025-04-20)
 
 
