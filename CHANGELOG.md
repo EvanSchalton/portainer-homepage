@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/EvanSchalton/portainer-homepage/compare/v1.1.1...v1.1.2) (2025-04-20)
+
+
+### Bug Fixes
+
+* update template to trigger release ([2c08a0d](https://github.com/EvanSchalton/portainer-homepage/commit/2c08a0da1ad4caad142a57d3c7c3d5ac3f0131cd))
+
 ## [1.1.1](https://github.com/EvanSchalton/portainer-homepage/compare/v1.1.0...v1.1.1) (2025-04-19)
 
 
