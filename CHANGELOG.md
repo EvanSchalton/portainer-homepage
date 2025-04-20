@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/EvanSchalton/portainer-homepage/compare/v1.3.0...v1.4.0) (2025-04-20)
+
+
+### Features
+
+* update ci to auto-publish ([347088a](https://github.com/EvanSchalton/portainer-homepage/commit/347088ae79e514fdb695694f958b8efce3f08b0c))
+
 ## [1.3.0](https://github.com/EvanSchalton/portainer-homepage/compare/v1.2.0...v1.3.0) (2025-04-20)
 
 
