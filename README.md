@@ -2,7 +2,9 @@
 
 This project creates a lightweight navigation homepage for Docker containers managed via Portainer.
 
-It is designed for self-hosted environments where administrators want a simple way to list and link to internal services (e.g., Portainer, Neo4J, Grafana) without managing a full dashboard UI.
+![Home Page Example](/images/homepage.png)
+
+It is designed for self-hosted environments where administrators want a simple way to list and link to internal services (e.g., Portainer, Neo4J, etc) without managing a full dashboard UI or remembering protocols and port numbers.
 
 The homepage is served via NGINX and built from a configurable list of services defined via environment variables.
 
@@ -23,7 +25,8 @@ The homepage is served via NGINX and built from a configurable list of services 
 ```
 app/
 ├── Dockerfile          # Builds the image from nginx and setup script
-├── setup.sh            # Converts environment variables to JSON and injects into template
+├── docker-compose.yml  # Forwards port 80 (+ optional env-vars)
+├── setup.sh            # renders index.html from env-vars
 ├── template.html       # Template with JS to render the service list
 ├── nginx.conf          # (Optional) Custom nginx config
 ```
@@ -34,21 +37,25 @@ app/
 
 You can deploy this as a Git-backed stack inside Portainer.
 
-### 1. Clone this repo
+> You can optionally clone this repo, but it's meant to be fully managed by portainer's UI so there's no need unless you want to customize the css/html
 
-Or point Portainer directly to the Git repo URL:
+### 1. Create a Stack
 
-```
-https://github.com/EvanSchalton/portainer-homepage.git
-```
-
-In the Portainer UI:
+#### In the Portainer UI:
 - Go to **Stacks** > **Add Stack**
 - Choose **Git Repository**
-- Paste the Git repo URL above
-- Set the working directory to `/app` (if needed)
+- Paste the Git repo URL below
+- Update the docker-compose referece from `docker-compose.yml` to `app/docker-compose.yml`
+
+```
+https://github.com/EvanSchalton/portainer-homepage
+```
+
+![Stack Creation](/images/stack_creation.png)
 
 ### 2. Example `docker-compose.yml`:
+Alternatively, you can fork the repo and point to the docker-compose file.
+You can optionally package your own instance of the docker container too.
 
 ```yaml
 version: '3.8'
@@ -60,6 +67,21 @@ services:
       - "80:80"
     environment: {}
 ```
+
+----
+
+## Managing Services
+
+You can add the environment variables (your services) in the stack creation step, but I prefer to deploy the stack then edit the container.
+
+Navigate to the container and select `Duplicate/Edit`
+
+![Container Editor Navigation](/images/environment_vars_navigation.png)
+
+Navigate to the container and select `Duplicate/Edit`
+
+![Container Editor Navigation](/images/environment_vars.png)
+
 
 Define services using key-value environment variables in the Portainer UI using the following naming pattern:
 
@@ -76,27 +98,3 @@ Example:
 | `service_neo4j_url`       | `http://docker.lan:7474/browser/`  |
 
 Services are sorted by `<id>` (e.g., `portainer`, `neo4j`) for display order.
-
----
-
-## Continuous Deployment
-
-This project uses GitHub Actions to automatically build and push the Docker image to GitHub Container Registry (GHCR) on each push to `main`.
-
-### Image URL:
-```
-ghcr.io/evanschalton/portainer-homepage:latest
-```
-
-Ensure the repository is public, or configure Portainer with credentials to pull private images from GHCR.
-
----
-
-## How It Works
-
-1. `setup.sh` runs when the container starts.
-2. It scans all environment variables for `service-*-label` and `service-*-url` pairs.
-3. It converts the key-value pairs into a sorted JSON list.
-4. It injects that JSON into `template.html`, replacing `{{SERVICES_JSON}}`.
-5. The rendered file is saved as `index.html` and served by NGINX.
-
