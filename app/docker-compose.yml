@@ -6,10 +6,10 @@ services:
     ports:
       - "80:80"
     environment:
-      - service_placeholder_label="placeholder"
-      - service_placeholder_url="placeholder-url"
-      - service_portainer_label="Portainer"
-      - service_portainer_url="https://docker.lan:9443"
-      - service_neo4j_label="Neo4j"
-      - service_neo4j_url="https://docker.lan:7474/browser/"
+      - service_placeholder_label=placeholder
+      - service_placeholder_url=placeholder-url
+      - service_portainer_label=Portainer
+      - service_portainer_url=https://docker.lan:9443
+      - service_neo4j_label=Neo4j
+      - service_neo4j_url=https://docker.lan:7474/browser/
 
