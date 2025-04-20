@@ -38,6 +38,6 @@ jobs:
           push: true
           tags: |
             ghcr.io/evanschalton/portainer-homepage:latest
-            ghcr.io/evanschalton/portainer-homepage:${{ github.event.release.tag_name }}
+            ghcr.io/evanschalton/portainer-homepage:${{ github.sha }}
           labels: |
             org.opencontainers.image.source=https://github.com/EvanSchalton/portainer-homepage
