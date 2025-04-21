@@ -5,7 +5,7 @@ if [ -n "$LOCAL_TESTING" ]; then
   export service_1_url="http://service1.example.com"
   export service_2_label="Service 2"
   export service_2_url="http://service2.example.com"
-  export DEFAULT_DARK_MODE="false"
+  export DEFAULT_DARK_MODE="true"
 fi
 
 
