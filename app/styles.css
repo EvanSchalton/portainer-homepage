@@ -1,55 +1,123 @@
+/* Existing styles remain unchanged */
+
 body {
-    font-family: system-ui, sans-serif;
-    background: #f9f9f9;
-    padding: 1rem;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #333;
+  font-family: system-ui, sans-serif;
+  background: #f9f9f9;
+  padding: 1rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
 }
 
+/* Dark mode styles */
+body.dark-mode {
+  background: #222;
+  color: #ddd;
+}
+
+body.dark-mode table {
+  background: #333;
+  box-shadow: none;
+}
+
+body.dark-mode th {
+  background: #444;
+}
+
+body.dark-mode a {
+  color: #66f;
+}
+
+/* Adjust the toggle switch size */
+.switch {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: inline-block;
+  width: 40px;  /* reduced width */
+  height: 24px; /* reduced height */
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;  /* reduced height */
+  width: 18px;   /* reduced width */
+  left: 3px;     /* adjust positioning */
+  bottom: 3px;   /* adjust positioning */
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px); /* adjust based on new width */
+}
+
+/* Other existing styles */
 h1 {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-    text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 table {
-    width: 100%;
-    max-width: 600px;
-    border-collapse: collapse;
-    background: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 }
 
 th,
 td {
-    padding: 0.75rem;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-    word-break: break-word;
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  word-break: break-word;
 }
 
 th {
-    background: #f0f0f0;
+  background: #f0f0f0;
 }
 
 a {
-    color: #0077cc;
-    text-decoration: none;
+  color: #0077cc;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 @media (max-width: 600px) {
-    body {
-        padding: 1rem 0.5rem;
-    }
+  body {
+    padding: 1rem 0.5rem;
+  }
 
-    table {
-        font-size: 0.9rem;
-    }
+  table {
+    font-size: 0.9rem;
+  }
 }

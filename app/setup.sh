@@ -5,6 +5,7 @@ if [ -n "$LOCAL_TESTING" ]; then
   export service_1_url="http://service1.example.com"
   export service_2_label="Service 2"
   export service_2_url="http://service2.example.com"
+  export DEFAULT_DARK_MODE="false"
 fi
 
 
@@ -20,9 +21,14 @@ fi
 if [ -z "$TABLE_HEADER" ]; then
   TABLE_HEADER="Services"
 fi
+# read the TABLE_HEADER env var, default to "Service List" if not set
+if [ -z "$DEFAULT_DARK_MODE" ]; then
+  DEFAULT_DARK_MODE="false"
+fi
 
 echo "Page Title: $PAGE_TITLE"
 echo "Table Header: $TABLE_HEADER"
+echo "Default Dark Mode: $DEFAULT_DARK_MODE"
 
 
 echo "Service IDs: $SERVICE_IDS"
@@ -54,10 +60,12 @@ if [ -z "$LOCAL_TESTING" ]; then
   sed "s|{{ SERVICES_JSON }}|$SERVICES_JSON|g" /template.html > /usr/share/nginx/html/index.html
   sed -i "s|{{ PAGE_TITLE }}|$PAGE_TITLE|g" /usr/share/nginx/html/index.html
   sed -i "s|{{ TABLE_HEADER }}|$TABLE_HEADER|g" /usr/share/nginx/html/index.html
+  sed -i "s|{{ DEFAULT_DARK_MODE }}|$DEFAULT_DARK_MODE|g" /usr/share/nginx/html/index.html
 else
   sed "s|{{ SERVICES_JSON }}|$SERVICES_JSON|g" template.html > index.html
   sed -i "s|{{ PAGE_TITLE }}|$PAGE_TITLE|g" index.html
   sed -i "s|{{ TABLE_HEADER }}|$TABLE_HEADER|g" index.html
+  sed -i "s|{{ DEFAULT_DARK_MODE }}|$DEFAULT_DARK_MODE|g" index.html
 fi
 
 # for local testing:
