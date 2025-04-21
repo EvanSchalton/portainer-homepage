@@ -8,6 +8,7 @@ services:
     environment:
       - PAGE_TITLE=Portainer Services
       - TABLE_HEADER=Services
+      - DEFAULT_DARK_MODE=true
 
       - service_placeholder_label=placeholder
       - service_placeholder_url=placeholder-url
