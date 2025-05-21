@@ -17,6 +17,7 @@ The homepage is served via NGINX and built from a configurable list of services 
 - Configurable via key-value environment variables in the Portainer UI
 - Designed for deployment via Portainer stacks
 - Generates `index.html` at runtime using a shell script and HTML template
+- Supports setting a `BASE_PATH` variable (useful if using a reverse proxy)
 
 ---
 
